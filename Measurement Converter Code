@@ -1,0 +1,101 @@
+using System;
+using System.Collections.Generic;
+
+class UnitConverter
+{
+    static void Main()
+    {
+        bool shouldContinue = true;
+
+        while (shouldContinue)
+        {
+            Console.WriteLine("Welcome to my Measurement Converter");
+            Console.WriteLine("Please select an option:");
+            Console.WriteLine("1. Length Conversion");
+            Console.WriteLine("2. Volume Conversion");
+            Console.WriteLine("3. Temperature Conversion");
+            Console.WriteLine("4. Exit");
+            Console.Write("Enter your choice: ");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            switch (choice)
+            {
+                case 1:
+                    ConvertLength();
+                    break;
+                case 2:
+                    ConvertVolume();
+                    break;
+                case 3:
+                    ConvertTemperature();
+                    break;
+                case 4:
+                    shouldContinue = false;
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
+            }
+
+            Console.WriteLine();
+        }
+    }
+
+    static void ConvertLength()
+    {
+        Console.Write("Enter the value in meters: ");
+        double meters = Convert.ToDouble(Console.ReadLine());
+
+        double kilometer = meters * 0.001;
+        double centimeter = meters * 100;
+        double millimeter = meters * 1000;
+        double mile = meters * 0.000621371;
+        double yard = meters * 1.09361;
+        double foot = meters * 3.28084;
+        double inch = meters * 39.3701;
+
+        Console.WriteLine($"Kilometer: {kilometer}");
+        Console.WriteLine($"Centimeter: {centimeter}");
+        Console.WriteLine($"Millimeter: {millimeter}");
+        Console.WriteLine($"Mile: {mile}");
+        Console.WriteLine($"Yard: {yard}");
+        Console.WriteLine($"Foot: {foot}");
+        Console.WriteLine($"Inch: {inch}");
+    }
+
+    static void ConvertVolume()
+    {
+        Console.Write("Enter the value in liters: ");
+        double liters = Convert.ToDouble(Console.ReadLine());
+
+        double cubicMeter = liters * 0.001;
+        double milliliter = liters * 1000;
+        double gallon = liters * 0.264172;
+        double quart = liters * 1.05669;
+        double pint = liters * 2.11338;
+        double cup = liters * 4.22675;
+        double fluidOunce = liters * 33.814;
+
+        Console.WriteLine($"Cubic Meter: {cubicMeter}");
+        Console.WriteLine($"Milliliter: {milliliter}");
+        Console.WriteLine($"Gallon: {gallon}");
+        Console.WriteLine($"Quart: {quart}");
+        Console.WriteLine($"Pint: {pint}");
+        Console.WriteLine($"Cup: {cup}");
+        Console.WriteLine($"Fluid Ounce: {fluidOunce}");
+    }
+
+    static void ConvertTemperature()
+    {
+        Console.Write("Enter the value in Celsius: ");
+        double celsius = Convert.ToDouble(Console.ReadLine());
+
+        double fahrenheit = celsius * 9 / 5 + 32;
+        double kelvin = celsius + 273.15;
+
+        Console.WriteLine($"Fahrenheit: {fahrenheit}");
+        Console.WriteLine($"Kelvin: {kelvin}");
+    }
+}
